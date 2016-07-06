@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Chicago Contributions Chloropleth</title>
+		<title>Contribution Inequality Chloropleth</title>
 		<script type="text/javascript" src="./d3/d3.v3.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<style type="text/css">
@@ -864,6 +864,8 @@ function switchview(svg, x, y, mode){
 
  		if(mode == 0){
      		svg.selectAll('.code')
+     			.transition()
+     			.duration(200)
 	     		.style("fill", function(d) {
 		   		//Get data value
 		   		var value = d.properties.percapita;
@@ -875,10 +877,12 @@ function switchview(svg, x, y, mode){
 			   		return "#ffffff";
 		   		}
 
-				})
+				});
 	     	}
 	    else if(mode == 1){
 	    	svg.selectAll('.code')
+	    		.transition()
+	    		.duration(200)
 	     		.style("fill", function(d) {
 		   		//Get data value
 		   		var value = d.properties.TotalContribs;
@@ -890,7 +894,7 @@ function switchview(svg, x, y, mode){
 			   		return "#ffffff";
 		   		}
 
-				})
+				});
 	    };
 	    updatelegend(svg, x, y, mode);
 
